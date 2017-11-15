@@ -119,7 +119,7 @@ namespace AzureSQLServerBackup
                 LogMessage("Something went wrong. Error: ", ex);
             }
 
-            LogMessage("Backup for completed");
+            LogMessage("Backup completed");
         }
 
         public static void LogMessage(string msg, Exception ex)
