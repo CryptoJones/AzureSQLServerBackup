@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.IO;
-using System.Timers;
 using Microsoft.SqlServer.Dac;
 using Newtonsoft.Json;
 
@@ -83,15 +82,17 @@ namespace AzureSQLServerBackup
             // Iterate through servers and back them up to .bacpac files
             foreach (Server server in cfg.Servers)
             {
-                BackupServer(cfg.BackupDirectory, server, server.HostName + "_" + server.DbName + ".bacpac");
+                BackupServer(cfg.BackupDirectory, server);
             }
 
             Environment.Exit(0);
         }
 
 
-        private static void BackupServer(string directory, Server server, string filename)
+        private static void BackupServer(string directory, Server server)
         {
+            string filename = server.HostName + "_" + server.DbName + ".bacpac";
+
             // build the connection string to use for the backup
             SqlConnectionStringBuilder csb = new SqlConnectionStringBuilder
             {
