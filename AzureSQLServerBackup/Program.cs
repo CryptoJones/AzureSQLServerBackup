@@ -100,9 +100,10 @@ namespace AzureSQLServerBackup
                 UserID = server.UserName,
                 PersistSecurityInfo = false,
                 TrustServerCertificate = true,
-                IntegratedSecurity = false
+                IntegratedSecurity = false,
+                InitialCatalog = server.DbName
             };
-
+            
             try
             {
                 LogMessage("Backup for " + server.DbName + "@" + server.HostName + " started");
@@ -132,7 +133,7 @@ namespace AzureSQLServerBackup
             {
                 string logLine = String.Format("{0:G}: {1}.", System.DateTime.Now, msg);
                 sw.WriteLine(logLine);
-                Console.Write(msg);
+                Console.WriteLine(msg);
             }
             catch
             {
