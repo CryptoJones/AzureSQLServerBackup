@@ -105,6 +105,7 @@ namespace AzureSQLServerBackup
 
             try
             {
+                LogMessage("Backup for " + server.DbName + "@" + server.HostName + " started");
                 // connect to database
                 DacServices ds = new DacServices(csb.ConnectionString);
 
@@ -115,6 +116,8 @@ namespace AzureSQLServerBackup
             {
                 LogMessage("Something went wrong. Error: ", ex);
             }
+
+            LogMessage("Backup for " + server.DbName + "@" + server.HostName + " completed");
         }
 
         public static void LogMessage(string msg, Exception ex)
