@@ -13,8 +13,8 @@ On second run the program will create a .bacpac file backup for each server/data
 Once you have verified your configuration is correct, you can set the program to run as a schedualed task.
 
 Error codes used;
-0 - 
-1 - Failed to backup
-2 - Configuration file written
-29 - Couldn't write configuration file
-30 - Couldn't read configuration file
+* 0 - Success
+* 1 - Failed to backup
+* 2 - Configuration file written
+* 29 - Couldn't write configuration file
+* 30 - Couldn't read configuration file
