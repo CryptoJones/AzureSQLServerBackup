@@ -29,24 +29,24 @@ namespace AzureSQLServerBackup
                 newConfig.Servers.Add(newServer);
 
 
-                string jsonData = Newtonsoft.Json.JsonConvert.SerializeObject(newConfig);
+                string jsonData = JsonConvert.SerializeObject(newConfig);
 
                 try
                 {
                     File.WriteAllText(path, jsonData);
-                    Console.WriteLine("Config created as " + @path);
+                    Console.WriteLine("Config created as " + path);
                     Console.WriteLine("Rerun program to backup database after modifying config!");
                     Console.ReadLine();
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Something went wrong. Exiting with error: " + ex.ToString());
+                    Console.WriteLine("Something went wrong. Exiting with error: " + ex);
                     Console.ReadLine();
-                    System.Environment.Exit(29);
+                    Environment.Exit(29);
                 }
 
 
-                System.Environment.Exit(2);
+                Environment.Exit(2);
             }
 
             // Open the file to read from.
@@ -57,9 +57,9 @@ namespace AzureSQLServerBackup
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Something went wrong. Exiting with error: " + ex.ToString());
+                Console.WriteLine("Something went wrong. Exiting with error: " + ex);
                 Console.ReadLine();
-                System.Environment.Exit(30);
+                Environment.Exit(30);
             }
 
 
@@ -78,16 +78,17 @@ namespace AzureSQLServerBackup
             }
             catch (Exception ex)
             {
-                //TODO Handle This
-                Console.WriteLine("Something went wrong. Exiting with error: " + ex.ToString());
+                Console.WriteLine("Something went wrong. Exiting with error: " + ex);
                 Console.ReadLine();
-                System.Environment.Exit(29);
+                Environment.Exit(29);
             }
 
             foreach (Server server in cfg.Servers)
             {
                 BackupServer(cfg.BackupDirectory, server, server.HostName + DateTime.Now + ".bacpac");
             }
+
+           Environment.Exit(0);
         }
 
         private static void BackupServer(string directory, Server server, string filename)
@@ -106,10 +107,9 @@ namespace AzureSQLServerBackup
             }
             catch (Exception ex)
             {
-                //TODO Handle This
-                Console.WriteLine("Something went wrong. Exiting with error: " + ex.ToString());
+                Console.WriteLine("Something went wrong. Exiting with error: " + ex);
                 Console.ReadLine();
-                System.Environment.Exit(1);
+                Environment.Exit(1);
             }
 
         }
