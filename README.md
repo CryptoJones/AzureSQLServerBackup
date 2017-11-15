@@ -22,10 +22,10 @@ Error codes used;
 
 ## Example Configuration File
 
-'''json
+```json
 {"Servers":[
     {"HostName":"localhost","DbName":"Development","UserName":"sa","Password":"Password1"},
     {"HostName":"frosty.contoso.com","DbName":"Production","UserName":"sa","Password":"IL0v3G0@tS3X!"},
     {"HostName":"71.203.8.65","DbName":"WingTipToys","UserName":"root","Password":"L1nuX>M1cr0$0ftW1nd0ws"}
     ],"BackupDirectory":"C:\\backups\\"}
-'''
+```
