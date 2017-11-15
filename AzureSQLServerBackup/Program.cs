@@ -11,7 +11,7 @@ namespace AzureSQLServerBackup
         static void Main(string[] args)
         {
             Config cfg = new Config();
-            string path = @"SQLServerBackup.config.json";
+            string path = @"AzureSQLServerBackup.config.json";
 
             // Create the config if not found
             if (!File.Exists(path))
