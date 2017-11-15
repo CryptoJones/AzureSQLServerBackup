@@ -113,8 +113,7 @@ namespace AzureSQLServerBackup
             }
             catch (Exception ex)
             {
-                LogMessage("Something went wrong. Exiting with error: ", ex);
-                Environment.Exit(1);
+                LogMessage("Something went wrong. Error: ", ex);
             }
         }
 
