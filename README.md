@@ -1,4 +1,4 @@
-## Back Utility for Azure/SQL Server 2014
+## Bacpac Creation Utility for Azure/SQL Server 2014
 
 Written against .NET Framework 4.6
 
